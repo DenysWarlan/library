@@ -1,0 +1,30 @@
+<div class=" col-xs-12 col-md-10 col-lg-8 offset-lg-2 offset-md-1 ">
+    <div class="alert alert-{{message.type}}" *ngIf="isShowAlert"role="alert">{{message.text}}</div>
+    <h2 class="white-text text-center">Sign in</h2>
+    <form [formGroup]="form" (ngSubmit)="loginUser()">
+            <div class="form-group white-text">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="email">
+                 <p *ngIf="form.get('email').invalid && form.get('email').touched" class="error m-0">
+                     <span *ngIf="form.get('email').errors['required']">Password requaired</span>
+                     <span *ngIf="form.get('email').errors['email']">
+                         Incorect email!
+                     </span>
+                 </p>
+            </div>
+            <div class="form-group white-text">
+                    <label>Password</label>
+                    <input type="password" class="form-control" formControlName="pass">
+                    <p *ngIf="form.get('pass').invalid && form.get('pass').touched" class="error m-0">
+                        <span *ngIf="form.get('pass').errors['required']">Password requaired</span>
+                        <span *ngIf="form.get('pass').errors['minlength']">
+                            Min password length {{charsCount}}
+                        </span>
+                    </p>
+            </div>
+        <button class="btn btn-success" type="submit" >Login</button>
+        <p class="white-text">Don't have an account?
+            <a routerLink="/register" class="btn-link">Register</a>
+        </p>
+    </form>
+</div>

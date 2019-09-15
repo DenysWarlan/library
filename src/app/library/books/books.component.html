@@ -1,0 +1,16 @@
+
+<div class="alert alert-success" *ngIf="isShowAlert"  role="alert">message.text</div>
+    <div class="row mt-10">
+       <app-search (onSearch)="updateBookList($event)" class="col-xs-12 col-lg-6 offset-lg-3"></app-search>
+    </div>
+    <ngx-slick-carousel 
+        class="carousel" 
+        #slickModal="slick-carousel"
+        [config]="slideConfig">
+            <app-book 
+                ngxSlickItem
+                class="slide d-flex align-items-center book" 
+                *ngFor="let book of books" [book]="book"
+                [isAuthentication]="isAuthentication">
+            </app-book>
+    </ngx-slick-carousel>
