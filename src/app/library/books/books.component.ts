@@ -49,7 +49,16 @@ export class BooksComponent implements OnInit {
       .subscribe((response) => {
         const items = response['items'];
         for (const item of items) {
-          const book = new Book;
+          const book: Book = {
+            id: '',
+            title: '',
+            description: '',
+            images: '',
+            link: '',
+            authors: [],
+            categories: [],
+            publishedDate: ''
+          };
           book.id = item.id;
           book.title = item.volumeInfo.title;
           book.authors = item.volumeInfo.authors;

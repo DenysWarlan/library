@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/models/user.model';
-import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-home-page',
@@ -8,16 +6,9 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./home-page.component.less']
 })
 export class HomePageComponent implements OnInit {
-  constructor(private authService: AuthService) { }
-  name: string;
-  isAuthentication: boolean;
+  constructor() { }
 
   ngOnInit() {
-    this.checkisAuthentication();
-  }
-
-  checkisAuthentication() {
-    
   }
 
 }

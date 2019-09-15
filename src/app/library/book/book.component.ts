@@ -26,7 +26,9 @@ export class BookComponent  implements OnInit {
   bookArray = [];
   user = JSON.parse(window.localStorage.getItem('user'));
   ngOnInit(): void {
-    this.getLibrary();
+    if (this.isAuthentication) {
+      this.getLibrary();
+    }
   }
 
   addToLibrary(book: Book) {

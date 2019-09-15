@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
         });
       } else {
         this.usersService.registerUser(this.form.value).subscribe((data) => {
-          this.router.navigate(['/'], {
+          this.router.navigate([''], {
             queryParams: {
               nowCanLogin: true
             }
