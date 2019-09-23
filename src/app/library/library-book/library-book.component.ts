@@ -27,11 +27,10 @@ export class LibraryBookComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.checkUserLibrary(this.user.id);
+    this.checkUserLibrary();
   }
 
   removeToLibrary(book: Book) {
-    this.checkUserLibrary(this.user.id);
     const oldUserLibrary = this.oldLibrary;
     const books = oldUserLibrary.books;
     const bookId = book.id;
@@ -42,9 +41,9 @@ export class LibraryBookComponent implements OnInit {
       }
     }
     return this.userService.updateBookList(this.oldLibrary, this.user.id)
-      .subscribe((response: Library) => {
+      .subscribe(() => {
         this.userLibraryComponent.books = [];
-        const items = response.books;
+        const items = this.oldLibrary.books;
         for (const item of items) {
           this.userLibraryComponent.books.push(item.book);
         }
@@ -52,8 +51,9 @@ export class LibraryBookComponent implements OnInit {
       });
   }
 
-  checkUserLibrary(id: number) {
-    this.userService.getLibrary(id).subscribe((response: Library) => {
+  checkUserLibrary() {
+    this.userService.getLibrary(this.user.id).subscribe((response: Library) => {
+      this.oldLibrary = undefined;
       this.oldLibrary = response;
       return this.oldLibrary;
     });

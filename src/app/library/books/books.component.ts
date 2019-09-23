@@ -4,6 +4,9 @@ import { Book } from '../../shared/models/book.model';
 
 import { UsersService } from 'src/app/shared/services/users.service';
 
+import { Library } from '../../shared/models/library.model';
+import { Message } from '../../shared/models/message.model';
+
 @Component({
   selector: 'app-books',
   templateUrl: './books.component.html',
@@ -13,10 +16,17 @@ import { UsersService } from 'src/app/shared/services/users.service';
 export class BooksComponent implements OnInit {
   @Input()
   isAuthentication: boolean;
+  @Input()
+  book: Book;
   constructor(
-    private booksService: BooksService) { }
+  private booksService: BooksService,
+  private userService: UsersService) { }
   componentData = null;
   books = new Set();
+  oldLibrary;
+  bookArray = [];
+  isShowAlert = false;
+  message: Message;
   user = JSON.parse(window.localStorage.getItem('user'));
   slideConfig = {
     'slidesToShow': 3,
@@ -36,7 +46,9 @@ export class BooksComponent implements OnInit {
       }
     ]
   };
+
   ngOnInit() {
+    this.getLibrary();
   }
 
   updateBookList(query: string) {
@@ -71,5 +83,24 @@ export class BooksComponent implements OnInit {
         }
         return this.books;
       });
+  }
+
+  getLibrary() {
+    if (this.isAuthentication) {
+      this.userService.getLibrary(this.user.id).subscribe((response: Library) => {
+        this.oldLibrary = undefined;
+        this.oldLibrary = response;
+        return response;
+      });
+    }
+  }
+
+  showMessage(message: Message) {
+    this.message = message;
+    this.isShowAlert = true;
+    window.setTimeout(() => {
+      this.message.text = '';
+      this.isShowAlert = false;
+    }, 5000);
   }
 }

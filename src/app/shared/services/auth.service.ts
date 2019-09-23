@@ -1,5 +1,5 @@
 export class AuthService {
-    private isAuthentication = false;
+    isAuthentication = false;
 
     login() {
         this.isAuthentication = true;

@@ -419,6 +419,7 @@ let BookComponent = class BookComponent {
         }
     }
     addToLibrary(book) {
+        this.getLibrary();
         const newLibrary = {
             id: this.user.id,
             books: [{ book }]

@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
     this.usersService.getUserByEmail(emailUser).subscribe((user: User) => {
       if (user) {
         this.showMessage({
-          text: 'email or ',
+          text: 'This email using ',
           type: 'danger'
         });
       } else {

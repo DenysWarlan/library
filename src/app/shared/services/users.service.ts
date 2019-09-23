@@ -29,8 +29,9 @@ export class UsersService {
       .map((library: Library) => library[0] ? library[0] : undefined);
   }
 
-  updateBookList(oldLibrary: Library, id) {
-    return this.http.put(`http://localhost:3000/library/${id}`, oldLibrary);
+  updateBookList(oldLibrary: Library, id): Observable<Library>  {
+    return this.http.put(`http://localhost:3000/library/${id}`, oldLibrary)
+      .map((library: Library) => library[0] ? library[0] : undefined);
   }
 
   createNewLibrary(newLibrary: Library) {

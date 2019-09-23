@@ -431,6 +431,7 @@ var BookComponent = /** @class */ (function () {
     };
     BookComponent.prototype.addToLibrary = function (book) {
         var e_1, _a;
+        this.getLibrary();
         var newLibrary = {
             id: this.user.id,
             books: [{ book: book }]

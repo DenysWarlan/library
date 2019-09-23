@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { RegisterComponent } from './user/register/register.component';
-import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuard } from './shared/services/auth.guard';
 import { UserLibraryComponent } from './user/user-library/user-library.component';
 import { UnloggedInComponent } from './user/unlogged-in/unlogged-in.component';

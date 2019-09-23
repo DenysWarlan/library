@@ -28,33 +28,7 @@
   "library": [
     {
       "id": 1,
-      "books": [
-        {
-          "book": {
-            "id": "kNEA-jgNI7wC",
-            "title": "Tolkien i C. S. Lewis",
-            "images": "http://books.google.com/books/content?id=kNEA-jgNI7wC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=kNEA-jgNI7wC&hl=&printsec=frontcover&source=gbs_api",
-            "publishedDate": "2011"
-          }
-        },
-        {
-          "book": {
-            "id": "djtjAgAAQBAJ",
-            "title": "HTML, XHTML i CSS. Praktyczne projekty. Wydanie II",
-            "description": "Drugie wydanie książki \"HTML, XHTML i CSS. Praktyczne projekty\" pozwoli Ci od podszewki poznać tajniki projektowania naprawdę przemyślanych stron internetowych, uwzględniających potrzeby ich użytkowników. Dowiesz się, jak zachować poprawność składniową XHTML i CSS. Poznasz semantykę kodu XHTML i opanujesz metodologię pracy zgodnej ze standardami. Zrozumiesz, dlaczego ważne jest zapewnienie dostępności Twoich stron dla osób niepełnosprawnych i co zrobić, by wyszukiwarki mogły bez trudu przeanalizować oraz zaklasyfikować zawartość serwisu. Nauczysz się wybierać czcionki, tło, projektować wygodny interfejs i poszczególne fragmenty strony, a także zapisywać szczególnie udane projekty w formie szablonów.",
-            "images": "http://books.google.com/books/content?id=djtjAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=djtjAgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Włodzimierz Gajda"
-            ],
-            "categories": [
-              "Computers"
-            ],
-            "publishedDate": "2011-10-26"
-          }
-        }
-      ]
+      "books": []
     }
   ]
 }

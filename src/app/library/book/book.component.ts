@@ -13,22 +13,22 @@ import { BooksComponent } from '../books/books.component';
   styleUrls: ['./book.component.css'],
   providers: [BooksComponent]
 })
-export class BookComponent  implements OnInit {
+export class BookComponent implements OnInit {
   constructor(
-    private userService: UsersService
+    private userService: UsersService,
+    private booksComponent: BooksComponent
   ) { }
   @Input()
   book: Book;
   @Input()
   isAuthentication: boolean;
-  oldLibrary: Library | undefined;
-  books: Book[];
+  @Input()
+  oldLibrary: Library;
+  books = [];
   bookArray = [];
   user = JSON.parse(window.localStorage.getItem('user'));
+
   ngOnInit(): void {
-    if (this.isAuthentication) {
-      this.getLibrary();
-    }
   }
 
   addToLibrary(book: Book) {
@@ -55,20 +55,20 @@ export class BookComponent  implements OnInit {
         }
       }
     } else {
-      return this.userService.createNewLibrary(newLibrary).subscribe((data) => data);
+      this.userService.createNewLibrary(newLibrary).subscribe((response: Library) => {
+        this.oldLibrary = response;
+        return this.oldLibrary;
+      });
     }
   }
 
   addBook(book: Book) {
     this.oldLibrary.books.push({ book });
     this.oldLibrary.books.splice(9);
-    return this.userService.updateBookList(this.oldLibrary, this.user.id).subscribe((data) => data);
-  }
-
-  getLibrary() {
-    this.userService.getLibrary(this.user.id).subscribe((response: Library) => {
+    this.userService.updateBookList(this.oldLibrary, this.user.id).subscribe((response: Library) => {
+      this.oldLibrary = undefined;
       this.oldLibrary = response;
-      return this.oldLibrary ;
+      return this.oldLibrary;
     });
   }
 }
