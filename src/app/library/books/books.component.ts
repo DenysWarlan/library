@@ -26,6 +26,7 @@ export class BooksComponent implements OnInit {
   oldLibrary;
   bookArray = [];
   isShowAlert = false;
+  isList = false;
   message: Message;
   user = JSON.parse(window.localStorage.getItem('user'));
   slideConfig = {
@@ -103,4 +104,13 @@ export class BooksComponent implements OnInit {
       this.isShowAlert = false;
     }, 5000);
   }
+
+  changeToList() {
+    this.isList = true;
+  }
+
+  changeToGallery() {
+    this.isList = false;
+  }
+
 }

@@ -11,6 +11,7 @@ import { Book } from '../../shared/models/book.model';
 })
 export class UserLibraryComponent implements OnInit {
   books: Book[];
+  config: any;
   constructor(private userService: UsersService) { }
   slideConfig = {
     'slidesToShow': 3,
@@ -42,7 +43,18 @@ export class UserLibraryComponent implements OnInit {
       for (const item of items) {
         this.books.push(item.book);
       }
+      console.log(this.books);
+      this.config = {
+        itemsPerPage: 9,
+        currentPage: 1,
+        totalItems: this.books.length
+      };
+      console.log(this.config);
       return this.books;
     });
+  }
+
+  pageChanged(event) {
+    this.config.currentPage = event;
   }
 }

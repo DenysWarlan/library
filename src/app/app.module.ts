@@ -25,7 +25,14 @@ import { LoggedInComponent } from './user/logged-in/logged-in.component';
 import { UserLibraryComponent } from './user/user-library/user-library.component';
 import { UnloggedInComponent } from './user/unlogged-in/unlogged-in.component';
 import { RegisterComponent } from './user/register/register.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,9 +56,20 @@ import { RegisterComponent } from './user/register/register.component';
     AlertModule,
     AppRoutingModule,
     SlickCarouselModule,
-    AngularFontAwesomeModule
+    NgxPaginationModule,
+    AngularFontAwesomeModule,
+    PerfectScrollbarModule
   ],
-  providers: [BooksService, UsersService, AuthService, AuthGuard],
+  providers: [
+    BooksService,
+    UsersService,
+    AuthService,
+    AuthGuard,
+    {
+    provide: PERFECT_SCROLLBAR_CONFIG,
+    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -41,7 +41,7 @@ module.exports = "<div class=\"home-bg\">\n  <div class=\"overlay\">\n    <div c
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n"
+module.exports = "<router-outlet></router-outlet>"
 
 /***/ }),
 
@@ -63,7 +63,7 @@ module.exports = "<div class='row'>\n  <div class='col-12'>\n    <div class=\"ro
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"alert alert-success\" *ngIf=\"isShowAlert\"  role=\"alert\">message.text</div>\n    <div class=\"row mt-10\">\n       <app-search (onSearch)=\"updateBookList($event)\" class=\"col-xs-12 col-lg-6 offset-lg-3\"></app-search>\n    </div>\n    <ngx-slick-carousel \n        class=\"carousel\" \n        #slickModal=\"slick-carousel\"\n        [config]=\"slideConfig\">\n            <app-book \n                ngxSlickItem\n                class=\"slide d-flex align-items-center book\" \n                *ngFor=\"let book of books\" [book]=\"book\"\n                [isAuthentication]=\"isAuthentication\">\n            </app-book>\n    </ngx-slick-carousel>"
+module.exports = "\n<div class=\"alert alert-{{message.type}}\" *ngIf=\"isShowAlert\" role=\"alert\">{{message.text}}</div>\n    <div class=\"row mt-10\">\n       <app-search (onSearch)=\"updateBookList($event)\" class=\"col-xs-12 col-lg-6 offset-lg-3\"></app-search>\n    </div>\n    <ngx-slick-carousel \n        class=\"carousel\" \n        #slickModal=\"slick-carousel\"\n        [config]=\"slideConfig\">\n            <app-book \n                ngxSlickItem\n                class=\"slide d-flex align-items-center book\" \n                *ngFor=\"let book of books\" [book]=\"book\"\n                [oldLibrary]=\"oldLibrary\"\n                [isAuthentication]=\"isAuthentication\">\n            </app-book>\n    </ngx-slick-carousel>"
 
 /***/ }),
 
@@ -118,7 +118,7 @@ module.exports = "<app-navigation></app-navigation>\n<div class=\"row align-item
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\" col-xs-12 col-md-10 col-lg-8 offset-lg-2 offset-md-1 \">\n    <div class=\"alert alert-{{message.type}}\" *ngIf=\"isShowAlert\"role=\"alert\">{{message.text}}</div>\n    <h2 class=\"white-text text-center\">Sign in</h2>\n    <form [formGroup]=\"form\" (ngSubmit)=\"loginUser()\">\n            <div class=\"form-group white-text\">\n                <label>Email</label>\n                <input type=\"email\" class=\"form-control\" formControlName=\"email\">\n                 <p *ngIf=\"form.get('email').invalid && form.get('email').touched\" class=\"error m-0\">\n                     <span *ngIf=\"form.get('email').errors['required']\">Password requaired</span>\n                     <span *ngIf=\"form.get('email').errors['email']\">\n                         Incorect email!\n                     </span>\n                 </p>\n            </div>\n            <div class=\"form-group white-text\">\n                    <label>Password</label>\n                    <input type=\"password\" class=\"form-control\" formControlName=\"pass\">\n                    <p *ngIf=\"form.get('pass').invalid && form.get('pass').touched\" class=\"error m-0\">\n                        <span *ngIf=\"form.get('pass').errors['required']\">Password requaired</span>\n                        <span *ngIf=\"form.get('pass').errors['minlength']\">\n                            Min password length {{charsCount}}\n                        </span>\n                    </p>\n            </div>\n        <button class=\"btn btn-success\" type=\"submit\" >Login</button>\n        <p class=\"white-text\">Don't have an account?\n            <a routerLink=\"/register\" class=\"btn-link\">Register</a>\n        </p>\n    </form>\n</div>\n"
+module.exports = "<div class=\" col-xs-12 col-md-10 col-lg-8 offset-lg-2 offset-md-1 \">\n    <h2 class=\"white-text text-center\">Sign in</h2>\n    <form [formGroup]=\"form\" (ngSubmit)=\"loginUser()\">\n            <div class=\"form-group white-text\">\n                <label>Email</label>\n                <input type=\"email\" class=\"form-control\" formControlName=\"email\">\n                 <p *ngIf=\"form.get('email').invalid && form.get('email').touched\" class=\"error m-0\">\n                     <span *ngIf=\"form.get('email').errors['required']\">Password requaired</span>\n                     <span *ngIf=\"form.get('email').errors['email']\">\n                         Incorect email!\n                     </span>\n                 </p>\n            </div>\n            <div class=\"form-group white-text\">\n                    <label>Password</label>\n                    <input type=\"password\" class=\"form-control\" formControlName=\"pass\">\n                    <p *ngIf=\"form.get('pass').invalid && form.get('pass').touched\" class=\"error m-0\">\n                        <span *ngIf=\"form.get('pass').errors['required']\">Password requaired</span>\n                        <span *ngIf=\"form.get('pass').errors['minlength']\">\n                            Min password length {{charsCount}}\n                        </span>\n                    </p>\n            </div>\n        <button class=\"btn btn-success\" type=\"submit\" >Login</button>\n        <p class=\"white-text\">Don't have an account?\n            <a routerLink=\"/register\" class=\"btn-link\">Register</a>\n        </p>\n    </form>\n</div>\n"
 
 /***/ }),
 
@@ -140,7 +140,7 @@ module.exports = "<app-navigation></app-navigation>\n<div class=\"row justify-co
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-navigation></app-navigation>\n<div class=\"row\">\n    <div class=\"col-sm-12 col-md-6 col-xl-6\" *ngIf=\"!isAuthentication\">\n        <h1 class=\"text-center white-text\">Wellcome</h1>\n        <p class=\"white-text text-center\"> You can find your favorite or new book.\n            Or You can login and create your library</p>\n        <h5 class=\"text-center white-text\">If you want test user panel please teel <a\n                href=\"https://www.facebook.com/profile.php?id=100006432486709\" target=\"_blank\">me\n            \n            </a>\n        </h5>\n    </div>\n    <div class=\"col-sm-12 col-md-6 col-xl-6\" *ngIf=\"!isAuthentication\">\n        <app-login></app-login>\n    </div>\n</div>\n<app-books [isAuthentication]=\"isAuthentication\"></app-books>"
+module.exports = "<app-navigation></app-navigation>\n<div class=\"row\">\n    <div class=\"col-sm-12 col-md-6 col-xl-6\" *ngIf=\"!isAuthentication\">\n        <h1 class=\"text-center white-text\">Wellcome</h1>\n        <p class=\"white-text text-center\"> You can find your favorite or new book.\n            Or You can login and create your library</p>\n        <h5 class=\"text-center white-text\">If you want test user panel please teel <a\n                href=\"https://www.facebook.com/profile.php?id=100006432486709\" target=\"_blank\">me\n            \n            </a>\n        </h5>\n    </div>\n    <div class=\"col-sm-12 col-md-6 col-xl-6\">\n        <app-login></app-login>\n    </div>\n</div>\n<app-books [isAuthentication]=\"isAuthentication\"></app-books>"
 
 /***/ }),
 
@@ -408,18 +408,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let BookComponent = class BookComponent {
-    constructor(userService) {
+    constructor(userService, booksComponent) {
         this.userService = userService;
+        this.booksComponent = booksComponent;
+        this.books = [];
         this.bookArray = [];
         this.user = JSON.parse(window.localStorage.getItem('user'));
     }
     ngOnInit() {
-        if (this.isAuthentication) {
-            this.getLibrary();
-        }
     }
     addToLibrary(book) {
-        this.getLibrary();
         const newLibrary = {
             id: this.user.id,
             books: [{ book }]
@@ -446,23 +444,25 @@ let BookComponent = class BookComponent {
             }
         }
         else {
-            return this.userService.createNewLibrary(newLibrary).subscribe((data) => data);
+            this.userService.createNewLibrary(newLibrary).subscribe((response) => {
+                this.oldLibrary = response;
+                return this.oldLibrary;
+            });
         }
     }
     addBook(book) {
         this.oldLibrary.books.push({ book });
         this.oldLibrary.books.splice(9);
-        return this.userService.updateBookList(this.oldLibrary, this.user.id).subscribe((data) => data);
-    }
-    getLibrary() {
-        this.userService.getLibrary(this.user.id).subscribe((response) => {
+        this.userService.updateBookList(this.oldLibrary, this.user.id).subscribe((response) => {
+            this.oldLibrary = undefined;
             this.oldLibrary = response;
             return this.oldLibrary;
         });
     }
 };
 BookComponent.ctorParameters = () => [
-    { type: src_app_shared_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"] }
+    { type: src_app_shared_services_users_service__WEBPACK_IMPORTED_MODULE_2__["UsersService"] },
+    { type: _books_books_component__WEBPACK_IMPORTED_MODULE_3__["BooksComponent"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
@@ -470,6 +470,9 @@ tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], BookComponent.prototype, "isAuthentication", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], BookComponent.prototype, "oldLibrary", void 0);
 BookComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-book',
@@ -507,14 +510,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _shared_services_books_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/services/books.service */ "./src/app/shared/services/books.service.ts");
+/* harmony import */ var src_app_shared_services_users_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/shared/services/users.service */ "./src/app/shared/services/users.service.ts");
+
 
 
 
 let BooksComponent = class BooksComponent {
-    constructor(booksService) {
+    constructor(booksService, userService) {
         this.booksService = booksService;
+        this.userService = userService;
         this.componentData = null;
         this.books = new Set();
+        this.bookArray = [];
+        this.isShowAlert = false;
         this.user = JSON.parse(window.localStorage.getItem('user'));
         this.slideConfig = {
             'slidesToShow': 3,
@@ -536,6 +544,7 @@ let BooksComponent = class BooksComponent {
         };
     }
     ngOnInit() {
+        this.getLibrary();
     }
     updateBookList(query) {
         this.showBooks(query);
@@ -569,13 +578,34 @@ let BooksComponent = class BooksComponent {
             return this.books;
         });
     }
+    getLibrary() {
+        if (this.isAuthentication) {
+            this.userService.getLibrary(this.user.id).subscribe((response) => {
+                this.oldLibrary = undefined;
+                this.oldLibrary = response;
+                return response;
+            });
+        }
+    }
+    showMessage(message) {
+        this.message = message;
+        this.isShowAlert = true;
+        window.setTimeout(() => {
+            this.message.text = '';
+            this.isShowAlert = false;
+        }, 5000);
+    }
 };
 BooksComponent.ctorParameters = () => [
-    { type: _shared_services_books_service__WEBPACK_IMPORTED_MODULE_2__["BooksService"] }
+    { type: _shared_services_books_service__WEBPACK_IMPORTED_MODULE_2__["BooksService"] },
+    { type: src_app_shared_services_users_service__WEBPACK_IMPORTED_MODULE_3__["UsersService"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], BooksComponent.prototype, "isAuthentication", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
+], BooksComponent.prototype, "book", void 0);
 BooksComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-books',
@@ -627,10 +657,9 @@ let LibraryBookComponent = class LibraryBookComponent {
         this.user = JSON.parse(window.localStorage.getItem('user'));
     }
     ngOnInit() {
-        this.checkUserLibrary(this.user.id);
+        this.checkUserLibrary();
     }
     removeToLibrary(book) {
-        this.checkUserLibrary(this.user.id);
         const oldUserLibrary = this.oldLibrary;
         const books = oldUserLibrary.books;
         const bookId = book.id;
@@ -641,17 +670,18 @@ let LibraryBookComponent = class LibraryBookComponent {
             }
         }
         return this.userService.updateBookList(this.oldLibrary, this.user.id)
-            .subscribe((response) => {
+            .subscribe(() => {
             this.userLibraryComponent.books = [];
-            const items = response.books;
+            const items = this.oldLibrary.books;
             for (const item of items) {
                 this.userLibraryComponent.books.push(item.book);
             }
             return this.userLibraryComponent.books;
         });
     }
-    checkUserLibrary(id) {
-        this.userService.getLibrary(id).subscribe((response) => {
+    checkUserLibrary() {
+        this.userService.getLibrary(this.user.id).subscribe((response) => {
+            this.oldLibrary = undefined;
             this.oldLibrary = response;
             return this.oldLibrary;
         });
@@ -972,7 +1002,8 @@ let UsersService = class UsersService {
             .map((library) => library[0] ? library[0] : undefined);
     }
     updateBookList(oldLibrary, id) {
-        return this.http.put(`http://localhost:3000/library/${id}`, oldLibrary);
+        return this.http.put(`http://localhost:3000/library/${id}`, oldLibrary)
+            .map((library) => library[0] ? library[0] : undefined);
     }
     createNewLibrary(newLibrary) {
         return this.http.post('http://localhost:3000/library', newLibrary);
@@ -1215,7 +1246,7 @@ let RegisterComponent = class RegisterComponent {
         this.usersService.getUserByEmail(emailUser).subscribe((user) => {
             if (user) {
                 this.showMessage({
-                    text: 'email or ',
+                    text: 'This email using ',
                     type: 'danger'
                 });
             }
