@@ -1,75 +1,53 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { AlertModule } from 'ngx-bootstrap';
-import { SlickCarouselModule } from 'ngx-slick-carousel';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
-
-import { BooksService } from './shared/services/books.service';
-import { UsersService } from './shared/services/users.service';
-import { AuthService } from './shared/services/auth.service';
-import { AuthGuard } from './shared/services/auth.guard';
-
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { HomePageComponent } from './home-page/home-page.component';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ActionReducer, MetaReducer, StoreModule } from '@ngrx/store';
+import { AppState, reducerT } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import { EffectsModule } from '@ngrx/effects';
+import { AppMaterialModule } from './material.module';
+import { AppBootstrapModule } from './bootstrap.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { appEfects, AppStoreModule } from './reducers/app-store.module';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru-UA';
+import { localStorageSync } from 'ngrx-store-localstorage';
 import { NavigationComponent } from './navigation/navigation.component';
-import { BooksComponent } from './library/books/books.component';
-import { BookComponent } from './library/book/book.component';
-import { SearchComponent } from './library/search/search.component';
-import { LibraryBookComponent } from './library/library-book/library-book.component';
-import { LoginComponent } from './user/login/login.component';
-import { LoggedInComponent } from './user/logged-in/logged-in.component';
-import { UserLibraryComponent } from './user/user-library/user-library.component';
-import { UnloggedInComponent } from './user/unlogged-in/unlogged-in.component';
-import { RegisterComponent } from './user/register/register.component';
-import { NgxPaginationModule } from 'ngx-pagination';
-import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
-import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
-import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { UserComponent } from './user/user.component';
+import { AdminComponent } from './admin/admin.component';
 
-const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
-};
+registerLocaleData(localeRu);
+
+export function localStorageSyncReducer(
+  reducer: ActionReducer<any>
+): ActionReducer<any> {
+  return localStorageSync({ keys: ['oAuth', 'user'], rehydrate: true })(
+    reducer
+  );
+}
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    BooksComponent,
-    BookComponent,
-    SearchComponent,
-    RegisterComponent,
-    HomePageComponent,
-    LoginComponent,
-    LoggedInComponent,
-    NavigationComponent,
-    UserLibraryComponent,
-    LibraryBookComponent,
-    UnloggedInComponent
-  ],
+  declarations: [AppComponent, PageNotFoundComponent, NavigationComponent, UserComponent, AdminComponent],
   imports: [
-    BrowserModule.withServerTransition({appId: 'libary'}),
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    AlertModule,
+    AppMaterialModule,
+    AppBootstrapModule,
+    BrowserModule.withServerTransition({ appId: 'libary' }),
     AppRoutingModule,
-    SlickCarouselModule,
-    NgxPaginationModule,
-    AngularFontAwesomeModule,
-    PerfectScrollbarModule
+    BrowserAnimationsModule,
+    AppStoreModule,
+    StoreModule.forRoot(reducerT, { metaReducers }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
+    EffectsModule.forRoot(appEfects),
   ],
-  providers: [
-    BooksService,
-    UsersService,
-    AuthService,
-    AuthGuard,
-    {
-    provide: PERFECT_SCROLLBAR_CONFIG,
-    useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
-    }
-  ],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

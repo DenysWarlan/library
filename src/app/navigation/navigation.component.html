@@ -1,16 +1,18 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark">
-    <div class="collapse navbar-collapse">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active">
-                <a class="nav-link" *ngIf="isAuthentication" routerLink="/{{name}}">E-library</a>
-                <a class="nav-link" *ngIf="!isAuthentication" routerLink="/">E-library</a>
-            </li>
-            <li class="nav-item" *ngIf="isAuthentication">
-                <a class="nav-link" routerLink="/{{name}}/library">Your library</a>
-            </li>
-            <li class="nav-item" *ngIf="isAuthentication">
-                <a class="nav-link" (click)=logout()>Logout</a>
-            </li>
-        </ul>
+<div class="bg-blue h-100">
+  <ng-container *ngIf="isAuth$| async">
+    <div class="d-flex justify-content-end">
+      <ng-container *ngIf="(user$ | async)?.profileId === role.admin || (user$ | async)?.profileId === role.root">
+        <button mat-button [matMenuTriggerFor]="account">Account</button>
+        <mat-menu #account="matMenu" yPosition="above">
+          <button mat-menu-item>Settings</button>
+          <button mat-menu-item></button>
+        </mat-menu>
+      </ng-container>
+      <ng-container *ngIf="(user$ | async)?.profileId === role.user || (user$ | async)?.profileId === role.root">
+
+      </ng-container>
+
+        <button mat-button color="white" (click)="logOut()">logout</button>
     </div>
-</nav>
+  </ng-container>
+</div>

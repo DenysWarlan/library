@@ -1,7 +1,10 @@
-<div class="home-bg">
-  <div class="overlay">
-    <div class="container">
-      <app-home-page></app-home-page>
-    </div>
+<div class="bg-primary h-5">
+  <ng-container *ngIf="isAuth$ | async">
+    <app-navigation></app-navigation>
+  </ng-container>
+</div>
+<div class="row">
+  <div class="col-12">
+    <router-outlet></router-outlet>
   </div>
 </div>

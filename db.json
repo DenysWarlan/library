@@ -13,163 +13,29 @@
       "postId": 1
     }
   ],
-  "profile": {
-    "name": "typicode"
-  },
+  "profile": [
+    {
+      "name": "admin",
+      "profileId": 1
+    },
+    {
+      "name": "library",
+      "profileId": 2
+    },
+    {
+      "name": "student",
+      "profileId": 3
+    }
+  ],
   "users": [
     {
       "email": "Denys.varlan95@gmail.com",
-      "pass": "admin",
+      "password": "admin",
       "username": "Denys",
-      "surname": "Varlan",
+      "profileId": 0,
+      "surname": "Katarzyna",
       "id": 1
     }
   ],
-  "library": [
-    {
-      "id": 1,
-      "books": [
-        {
-          "book": {
-            "id": "Pqcesk8iZzMC",
-            "title": "Charpy Impact Test",
-            "images": "http://books.google.com/books/content?id=Pqcesk8iZzMC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=Pqcesk8iZzMC&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "John M. Holt"
-            ],
-            "categories": [
-              "Compliance"
-            ],
-            "publishedDate": "1990-01-01"
-          }
-        },
-        {
-          "book": {
-            "id": "quX_CwAAQBAJ",
-            "title": "Polecenie test",
-            "description": "Wszystko można przetestować, ale jak to zrobić z poziomu powłoki? Podczas wykorzystywania instrukcji sterujących w skryptach czy programach często napotykamy się na dokonywanie porównania czy sprawdzenia spełnienia jakiegoś warunku. Warunki te mogą opierać się zarówno o porównanie liczb jak i porównanie ciągu znaków czy sprawdzenia istnienia, zawartości lub typu pliku. Wszystkie powyższe warunki można sprawdzić wykorzystując polecenie test. Mikro-kurs ten jest obowiązkowy aby umieć tworzyć bardziej skomplikowane skrypty. Słowa kluczowe: test, porównanie, większy, mniejszy, czy istnieje Polecenie test Testowanie warunków Polecenie test Testowania wyrażeń arytmetycznych",
-            "images": "http://books.google.com/books/content?id=quX_CwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=quX_CwAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Noite.pl"
-            ]
-          }
-        },
-        {
-          "book": {
-            "id": "ZRnZAgAAQBAJ",
-            "title": "Test wiary",
-            "description": "Trzecia część trylogii opowiadającej o losach Gabriela Fortisa, wybrańca niebios, który stara się pomagać ludziom w ich codziennych problemach i trudnych decyzjach. Na Ziemi wszystko zaczyna podążać w złym kierunku. Ludzie zapominają o tym co ważne i przejmują się tylko własnym, często zgubnym interesem. Nie zdają sobie sprawy jak bardzo prowadzi ich to do zguby. Na domiar złego Gabriel dowiaduje się o ciężkich przeżyciach Kasi, która nękana przez wybrańców piekieł wraca zdruzgotana do rodzinnego domu. Postanawia porzucić wszystkie narzucone mu zadania wybrańca, by poświęcić się tylko i wyłącznie swojej ukochanej. Wtedy w różnych zakątkach świata objawia się młodym księżom prorok. Zapowiada on nadchodzący koniec świata i prosi ich, by nakłonili wszystkich ludzi do poprawy swojego życia i przygotowania się do sądu ostatecznego. Ludzie ufają im bezgranicznie. Porzucają swoje dotychczasowe życie i wspólnie przygotowują się na nadchodzący koniec. Na świecie zaczyna dominować dobro, ale jedna sprawa martwi całe niebiosa – ów prorok nie jest ich wysłańcem.",
-            "images": "http://books.google.com/books/content?id=ZRnZAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=ZRnZAgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Krzysztof Lip"
-            ],
-            "categories": [
-              "Fiction"
-            ],
-            "publishedDate": "2013-05-17"
-          }
-        },
-        {
-          "book": {
-            "id": "lMTIIQb-MO8C",
-            "title": "PRO 31: International RILEM Workshop on Test and Design Methods for Steel Fibre Reinforced Concrete - Background and Experiences",
-            "images": "http://books.google.com/books/content?id=lMTIIQb-MO8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=lMTIIQb-MO8C&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Bernd Schnütgen",
-              "Lucie Vandewalle"
-            ],
-            "categories": [
-              "Cement composites"
-            ],
-            "publishedDate": "2003"
-          }
-        },
-        {
-          "book": {
-            "id": "djtjAgAAQBAJ",
-            "title": "HTML, XHTML i CSS. Praktyczne projekty. Wydanie II",
-            "description": "Drugie wydanie książki \"HTML, XHTML i CSS. Praktyczne projekty\" pozwoli Ci od podszewki poznać tajniki projektowania naprawdę przemyślanych stron internetowych, uwzględniających potrzeby ich użytkowników. Dowiesz się, jak zachować poprawność składniową XHTML i CSS. Poznasz semantykę kodu XHTML i opanujesz metodologię pracy zgodnej ze standardami. Zrozumiesz, dlaczego ważne jest zapewnienie dostępności Twoich stron dla osób niepełnosprawnych i co zrobić, by wyszukiwarki mogły bez trudu przeanalizować oraz zaklasyfikować zawartość serwisu. Nauczysz się wybierać czcionki, tło, projektować wygodny interfejs i poszczególne fragmenty strony, a także zapisywać szczególnie udane projekty w formie szablonów.",
-            "images": "http://books.google.com/books/content?id=djtjAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=djtjAgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Włodzimierz Gajda"
-            ],
-            "categories": [
-              "Computers"
-            ],
-            "publishedDate": "2011-10-26"
-          }
-        },
-        {
-          "book": {
-            "id": "UkObAgAAQBAJ",
-            "title": "CSS",
-            "description": "Explores CSS tasks and discusses such topics as creating usable Web designs, controlling typography, and choosing appearance-enhancing colors and backgrounds.",
-            "images": "http://books.google.com/books/content?id=UkObAgAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=UkObAgAAQBAJ&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "David McFarland"
-            ],
-            "categories": [
-              "Computers"
-            ],
-            "publishedDate": "2006"
-          }
-        },
-        {
-          "book": {
-            "id": "pMNipAO1imwC",
-            "title": "CSS and Documents",
-            "description": "Cascading Style Sheets (CSS) is a powerful tool that transforms the presentation of a document or a collection of documents, and it’s spread to nearly every corner of the Web—as well as many non-web environments. In this free introduction to Cascade Style Sheets, you’ll learn how CSS makes it possible for you to completely change the way document elements are presented by a user agent. You’ll discover the origins of this specification and how CSS styles work with HTML. Learn how you can choose style sheets based on the features of a given media type, including desktop screens, web-enabled phones, digital projectors, TVs, Braille devices, print documents, and even various audio renderings of a document. CSS and Documents is an excerpt from the forthcoming 4th edition of CSS: The Definitive Guide.",
-            "images": "http://books.google.com/books/content?id=pMNipAO1imwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=pMNipAO1imwC&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Eric A. Meyer"
-            ],
-            "categories": [
-              "Computers"
-            ],
-            "publishedDate": "2012-09-28"
-          }
-        },
-        {
-          "book": {
-            "id": "QwnWLMtXU7cC",
-            "title": "Beginning HTML and CSS",
-            "description": "Everything you need to build websites with the newestversions of HTML and CSS If you develop websites, you know that the goal posts keepmoving, especially now that your website must work on not onlytraditional desktops, but also on an ever-changing range ofsmartphones and tablets. This step-by-step book efficiently guidesyou through the thicket. Teaching you the very latest bestpractices and techniques, this practical reference walks youthrough how to use HTML5 and CSS3 to develop attractive, modernwebsites for today's multiple devices. From handling text, forms,and video, to implementing powerful JavaScript functionality, thisbook covers it all. Serves as the ultimate beginners guide for anyone who wants tobuild websites with HTML5 and CSS3, whether as a hobbyist oraspiring professional developer Covers the basics, including the different versions of HTML andCSS and how modern websites use structure and semantics to describetheir contents Explains core processes, such as marking up text, images,lists, tables, forms, audio, and video Delves into CSS3, teaching you how to control or change the wayyour pages look and offer tips on how to create attractivedesigns Explores the jQuery library and how to implement powerfulJavaScript features, such as tabbed content, image carousels, andmore Get up to speed on HTML5, CSS3, and today's website design withthis practical guide. Then, keep it on your desk as areference!",
-            "images": "http://books.google.com/books/content?id=QwnWLMtXU7cC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=QwnWLMtXU7cC&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Rob Larsen"
-            ],
-            "categories": [
-              "Computers"
-            ],
-            "publishedDate": "2013-03-08"
-          }
-        },
-        {
-          "book": {
-            "id": "opByEFgSVOoC",
-            "title": "Learn CSS with W3Schools",
-            "description": "If you already know HTML and you want to design Web sites using the Web standard CSS, this is the place to start. w3schools has perfected a straightforward tutorial approach that gives you what you need to know in manageable lessons, liberally supported with examples. You'll find that tried-and-true format in this book, along with a detailed reference section that you will use again and again --",
-            "images": "http://books.google.com/books/content?id=opByEFgSVOoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-            "link": "http://play.google.com/books/reader?id=opByEFgSVOoC&hl=&printsec=frontcover&source=gbs_api",
-            "authors": [
-              "Hege Refsnes",
-              "W3Schools"
-            ],
-            "categories": [
-              "Computers"
-            ],
-            "publishedDate": "2010-06-01"
-          }
-        }
-      ]
-    }
-  ]
+  "libraryBooks": []
 }

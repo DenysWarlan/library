@@ -1,23 +1,24 @@
+import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserComponent } from './user/user.component';
+import { AuthGuard } from './reducers/o-auth/auth.guard';
+import { AdminComponent } from './admin/admin.component';
 
-import { RegisterComponent } from './user/register/register.component';
-import { AuthGuard } from './shared/services/auth.guard';
-import { UserLibraryComponent } from './user/user-library/user-library.component';
-import { UnloggedInComponent } from './user/unlogged-in/unlogged-in.component';
-import { LoggedInComponent } from './user/logged-in/logged-in.component';
-
-const appRoutes: Routes = [
-    { path: '', component: UnloggedInComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: ':username', canActivate: [AuthGuard], component: LoggedInComponent },
-    { path: ':username/library', canActivate: [AuthGuard], component: UserLibraryComponent }
+const routes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./o-auth/o-auth.module').then((m) => m.AuthModule),
+  },
+  { path: 'not-found', component: PageNotFoundComponent },
+  { path: 'user/:id', canActivate: [AuthGuard], component: UserComponent },
+  { path: 'admin/:id', canActivate: [AuthGuard], component: AdminComponent },
+  { path: '**', redirectTo: 'not-found' },
 ];
-@NgModule ({
-    imports: [RouterModule.forRoot(appRoutes)],
-    exports: [RouterModule]
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule {}
