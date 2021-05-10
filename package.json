@@ -40,7 +40,7 @@
     "class-transformer": "^0.2.3",
     "class-validator": "^0.9.1",
     "express": "^4.15.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "material-components-web": "^6.0.0",
     "moment": "^2.25.1",
     "ngrx-store-localstorage": "^9.0.0",
